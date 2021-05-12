@@ -17,7 +17,7 @@ function* fetchAllPets(action) {
     const params = { ...action.payload.params, ...object };
     try {
         const data = yield call(API.fetchPets, params);
-        yield put({ type: ActionTypes.SET_PETS_SUCCESS, payload: { data,params } });
+        yield put({ type: ActionTypes.SET_PETS_SUCCESS, payload: { data, params } });
     } catch (error) {
         yield put({ type: ActionTypes.SET_PETS_FAILED, payload: { responseError: error.message } });
     }

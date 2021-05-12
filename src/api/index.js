@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "http://"; // Will be completed on finishing server side implemetnation;
+const URL = "http://localhost:5000/api"; // Will be completed on finishing server side implemetnation;
 
 const axiosInstance = axios.create({
     baseURL: URL
@@ -14,12 +14,12 @@ const buildQueryParams = (params = {}) => {
 }
 export const fetchPets = async (params = {}) => {
     const queryParams = buildQueryParams(params);
-    const response = await axiosInstance.get(`pets /${Object.keys(params).length ? `?${queryParams}` : ""}}`);
+    const response = await axiosInstance.get(`pets/${Object.keys(params).length ? `?${queryParams}` : ""}}`);
     return response.data;
 }
 
 export const getTypesByAnimal = async (animalType) => {
-    const response = await axiosInstance.get(`animalTypes / ${animalType} `);
+    const response = await axiosInstance.get(`${animalType}/breeds`);
     return response.data;
 
 }

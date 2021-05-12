@@ -66,7 +66,7 @@ const Dropdowns = () => {
         else {
             object = { [type]: selectedItem };
         }
-        getPets(params, object);
+        getPets(object);
     }
 
 

@@ -1,9 +1,9 @@
 import * as ActionTypes from '../action-types';
 
-export const getPets = (params, object={}) => {
+export const getPets = (object = {}) => {
     return {
         type: ActionTypes.SET_PETS_ACTION,
-        payload: { params, object }
+        payload: { object }
     }
 }
 

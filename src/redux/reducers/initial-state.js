@@ -2,7 +2,7 @@ const initialState = {
     petsData: {
         pets: [],
         pagination: {
-            count_per_page: 0,
+            count_per_page: 20,
             total_count: 0,
             current_page: 0,
             total_pages: 0
