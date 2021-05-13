@@ -51,13 +51,13 @@ const Dropdowns = () => {
 
 
     const renderAgeOptions = () => {
-        return ages.map(option => (
-            <Dropdown.Item eventKey={option} active={option === selectedAge} onSelect={handleAgeSelect}>{option === "" ? "All" : option}</Dropdown.Item>
+        return ages.map((option,index) => (
+            <Dropdown.Item key={`o2${index}`} eventKey={option} active={option === selectedAge} onSelect={handleAgeSelect}>{option === "" ? "All" : option}</Dropdown.Item>
         ))
     }
     const renderTypeOptions = () => {
-        return animalTypes.map(option => (
-            <Dropdown.Item eventKey={option} active={option === selectedType} onSelect={handleTypeSelect}>{option === "" ? "All" : option}</Dropdown.Item>
+        return animalTypes.map((option,index) => (
+            <Dropdown.Item  key={`o1${index}`} eventKey={option} active={option === selectedType} onSelect={handleTypeSelect}>{option === "" ? "All" : option}</Dropdown.Item>
         ))
     }
     return (

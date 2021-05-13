@@ -9,10 +9,9 @@ const PetsData = () => {
     const dispatch = useDispatch();
 
     const renderPets = () => {
-        console.log(pets);
         return pets.map((pet, index) => (
             <>
-                <div>
+                <div key={`p${index}`}>
                     <Pet pet={pet} />
                 </div>
             </>
@@ -20,24 +19,23 @@ const PetsData = () => {
     }
 
     const renderNumbers = () => {
-        console.log(pagination);
-        const { currentPage, total_pages } = pagination;
+        const { currentPage } = pagination;
         const paginationArr = [];
-        for (let index = 1; index <= total_pages; index++) {
+        for (let index = 1; index <= 20; index++) {
             paginationArr.push(index);
 
         }
-        return paginationArr.map(index => {
-            (<Pagination.Item key={`i${index}`} active={currentPage === index} onClick={e => onPaginate(e)}>
+        return paginationArr.map(index => (
+            (<Pagination.Item key={`i${index}`} active={currentPage === index} onClick={onPaginate}>
                 {index}
             </Pagination.Item>
             )
-        })
+        ))
     }
 
     const onPaginate = e => {
-        const { value } = e.target;
-        dispatch(getPets({ page: value }));
+        const { text: page } = e.target;
+        dispatch(getPets({ page }));
     }
 
     return (
@@ -46,7 +44,7 @@ const PetsData = () => {
                 {renderPets()}
             </CardGroup>
 
-            <Pagination style={{marginLeft: "400px"}}>
+            <Pagination style={{ marginLeft: "100px" }}>
                 {renderNumbers()}
             </Pagination>
         </>
