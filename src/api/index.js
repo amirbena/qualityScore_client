@@ -14,12 +14,12 @@ const buildQueryParams = (params = {}) => {
 }
 export const fetchPets = async (params = {}) => {
     const queryParams = buildQueryParams(params);
-    const response = await axiosInstance.get(`pets/${Object.keys(params).length ? `?${queryParams}` : ""}}`);
+    const response = await axiosInstance.get(`pets${Object.keys(params).length ? `?${queryParams}` : ""}`);
     return response.data;
 }
 
 export const getTypesByAnimal = async (animalType) => {
     const response = await axiosInstance.get(`${animalType}/breeds`);
-    return response.data;
+    return response.data.types;
 
 }

@@ -1,7 +1,16 @@
-import { combineReducers } from "redux";
-import PetsReducer from './pets-reducer';
-import SelectsReducer from './selects-reducers';
-import ParamsReducer from './params-reducer';
+import petsDict from './petsDict';
+import selectsDict from './selectsDict';
+import paramsDict from './paramsDict';
+import initialState from './initial-state';
 
-export default combineReducers(PetsReducer,SelectsReducer,ParamsReducer);
+const reducer = (state = initialState, action) => {
+    const bigDictionary = {
+        ...petsDict, ...selectsDict,
+        ...paramsDict
+    }
+    const updateStore = bigDictionary[action.type];
+    if (!updateStore) return state;
+    return updateStore(state, action);
+}
+export default reducer;
 

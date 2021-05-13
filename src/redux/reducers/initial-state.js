@@ -9,8 +9,8 @@ const initialState = {
         }
     },
     selects: {
-        selectedAnimal: "Cats",
-        ages: ["", "Baby", "Young", "Senior"],
+        selectedAnimal: "Cat",
+        ages: ["","Baby", "Young", "Senior"],
         animalTypes: [],
         selectedAge: "",
         selectedType: "",
